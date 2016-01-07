@@ -1,0 +1,16 @@
+extends ./article.jade
+
+append styles
+	style= ".content p{text-align:center}"
+
+append variables
+	- article.title = "Page not found"
+	- article.subtitle = "This should not happen :-/"
+	- article.image = "404.png"
+
+block content
+	.call-to-action(role="alert")
+		p We do not have a page like that.
+		p Please #[a(href="/") try again].
+		p.call-to-action
+			a.button(href="/") Back to our home page

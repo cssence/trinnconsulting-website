@@ -1,0 +1,169 @@
+@media screen {
+
+	body {
+		background: url(/img/hand-left.png) top left / auto 16.625em no-repeat;
+	}
+
+	.content {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 4em 2em;
+	}
+
+	.content h2 {
+		margin-top: 0;
+		border-bottom-width: 0;
+		color: inherit;
+		font-size: 200%;
+		text-align: center;
+	}
+	.focus {
+		font-size: 1.25em;
+	}
+
+	.section-hero {
+		position: relative;
+		padding-top: 8em;
+		padding-bottom: 2em;
+		background: url(/img/hand-right.png) bottom right / auto 16.625em no-repeat;
+	}
+
+	.section-hero .content {
+		width: 16em;
+		margin-left: 0;
+		padding: 20em 2em 0;
+	}
+
+	.logo {
+		display: none;
+	}
+
+	.tagline {
+		position: absolute;
+		top: 7.5rem;
+		left: 50%;
+		width: 10em;
+		margin-left: -5em !important;
+		padding-top: 3.5rem;
+		background: url(/img/logo.png) 0 0 / 9.75em auto no-repeat;
+		font-family: sans-serif;
+		font-size: 250%;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.tagline strong {
+		padding: 0 .25em;
+		background-color: rgb(0,211,229);
+		color: #fff;
+	}
+	.tagline strong:first-child {
+		margin-left: -.25em;
+	}
+
+	.section-invert {
+		background: #444;
+		color: #fff;
+	}
+
+	.section-team .content {
+		position: relative;
+		max-width: none;
+	}
+
+	.intro {
+		list-style-type: none;
+		text-align: center;
+	}
+	.intro.team {
+		overflow-x: auto;
+		overflow-y: hidden;
+		width: auto;
+		margin-right: -2em;
+		margin-left: -2em;
+		white-space: nowrap;
+	}
+
+	.intro-item {
+		display: inline-block;
+		position: relative;
+		width: 13em;
+		padding: 10em 0 1em;
+		text-align: center;
+	}
+
+	.partner-company {
+		width: auto;
+		padding: 1em 3em;
+	}
+
+	.partner-company-logo {
+		width: 6em;
+		background: #fff;
+	}
+
+	.intro-item-link {
+		display: block;
+	}
+
+	.intro-item h3 {
+		margin-bottom: -1em;
+	}
+
+	.image-frame {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -4.5em !important;
+	}
+
+	.call-to-action h3 {
+		margin-top: 2em;
+		color: inherit;
+	}
+
+}
+
+@media screen and (max-width: 42em) {
+
+	body {
+		background-position: -6em 0;
+	}
+
+	.section-hero {
+		background-position: right -8.875em bottom 7em;
+	}
+
+	.section-hero .content {
+		padding-top: 70vw;
+	}
+
+}
+
+@media screen and (max-width: 37em) {
+
+	.tagline {
+		padding-top: 2.75rem;
+		font-size: 7vw;
+	}
+
+	.partner-company {
+		font-size: 2.5vw;
+	}
+
+}
+
+@media screen and (max-width: 22em) {
+
+	.section-hero {
+		background-position: right -9.5em bottom 7em;
+	}
+
+}
+
+@media screen and (min-width: 80em) {
+
+	.section-hero .content {
+		padding-top: 16rem;
+	}
+
+}

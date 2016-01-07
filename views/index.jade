@@ -1,0 +1,35 @@
+extends ./layout.jade
+
+append styles
+	if verbose
+		link(rel="stylesheet", href="/css/index.css")
+	else
+		style
+			include ../build/index.css
+
+block title
+	title TRINN Consulting &mdash; We Make Innovation Happen
+	meta(name="description", content="Strategy Consulting for Transformation and Innovation.")
+
+block main
+	include vcard
+	section.section-clients.section-invert
+		.content
+			h2 Our Clients
+			p.focus We have been founded only recently and we are busy building up our portfolio. Needless to say we take confidentiality seriously, which is why it would be too soon to reveal a list of our clients.
+			.call-to-action
+				h3.focus What about you?
+				p.focus We would love to work with you.
+				p.focus
+					a.button.button-invert(href="/contact") Get in touch
+	section.section-partners
+		.content
+			h2 Our Partners
+			p.focus We are in close cooperation with the following amazing companies. Together we strive to ensure that our clients get all the help and experience they need.
+			ul.intro.partner
+				each company in partner
+					li.intro-item.partner-company
+						a.intro-item-link.hide-link.block-link(href=company.url)
+							img.partner-company-logo(src="/img/"+company.logo)
+							br.print
+							span.print= company.name

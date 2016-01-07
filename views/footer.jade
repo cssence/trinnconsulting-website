@@ -1,0 +1,17 @@
+footer.site(role="contentinfo")
+	nav.nav-about.screen
+		ul
+			- var links = []
+			- links.push({"path": "/contact", "name": "Contact"})
+			- links.push({"path": "/imprint", "name": "Imprint"})
+			each link in links
+				li
+					a(href=link.path)= link.name
+	p.branding.legal
+		small.copyright &copy; 2016 
+			span.company-name
+				span(lang=language!=="no"?"no":null) TRINN
+				span(lang=language!=="en"?"en":null)  Consulting 
+				abbr(lang=language!=="de"?"de":null) GmbH
+			= " "
+			include logo

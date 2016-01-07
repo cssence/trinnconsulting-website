@@ -1,0 +1,27 @@
+section.section-hero
+	.content.vcard
+		h1.fn.n.org
+			span(lang=language!=="no"?"no":null) TRINN
+			span(lang=language!=="en"?"en":null)  Consulting 
+			abbr(lang=language!=="de"?"de":null) GmbH
+		p
+			img.logo(lang=language!=="en"?"en":null, src="/img/logo.png", alt="Company logo of TRINN Consulting")
+		p.adr
+			a(lang=language!=="en"?"en":null, href="https://www.google.com/maps/place/Johannesgasse+15,+1010+Wien", title="Show in Google Maps")
+				span.street-address(lang=language!=="de"?"de":null) Johannesgasse&nbsp;15
+				br
+				span.postal-code 1010
+				| &nbsp;
+				span.locality(lang=language!=="en"?"en":null) Vienna
+				br.print
+				span.country-name.print(lang=language!=="en"?"en":null) Austria
+		p
+			+mail("info@trinn.consulting")
+			br
+			a.url(href="http://trinn.consulting/") http://trinn.consulting/
+		p.legal
+			small
+				| UID ATU69988524
+				br
+				| FN 441005m
+		p.tagline.note We make #[strong transformation] and&nbsp;#[strong innovation] happen.

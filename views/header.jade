@@ -1,0 +1,10 @@
+header.site.screen(role="banner")
+	nav.branding.nav-path
+		ul
+			each entry, depth in nesting
+				li
+					if !depth
+						include logo
+					else
+						- var path = nesting.slice(0, depth + 1).map(function (item) { return item.node; }).join("/")
+						a.hide-link(href=path)= entry.name

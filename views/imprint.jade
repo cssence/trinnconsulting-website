@@ -1,0 +1,59 @@
+extends ./article.jade
+
+append variables
+	- nesting.push({"node": "imprint", "name": "Imprint"})
+	- article.title = "Imprint"
+	- article.subtitle = "About this site"
+	- article.description = "http://trinn.consulting/ is a platform providing information about TRINN Consulting and its services."
+	- article.image = "imprint.png"
+	- article.wallpaper = "lion.jpg"
+
+block content
+	h2 Basic tendency of the website content
+	p The website #[a(href="http://trinn.consulting/") trinn.consulting] is a platform providing information about TRINN Consulting and its services. The purpose of the business is #[strong Ideation and Consulting].
+	h2 Ownership, Content Publishing
+	dl.metadata
+		dt Company
+		dd TRINN Consulting #[abbr GmbH]
+		dt Address
+		dd
+			span.street-address(lang=language!=="de"?"de":null) Johannesgasse&nbsp;15
+			br
+			span.postal-code 1010
+			| &nbsp;
+			span.locality(lang=language!=="en"?"en":null) Vienna
+			br.print
+			span.country-name.print(lang=language!=="en"?"en":null) Austria
+		dt Phone
+		dd +43&nbsp;1&nbsp;5129141&nbsp;-&nbsp;0
+		dt Fax
+		dd +43&nbsp;1&nbsp;5129141&nbsp;-&nbsp;51
+		dt Email address
+		dd info@trinn.consulting
+	dl.metadata
+		dt IBAN
+		dd AT95&nbsp;1500&nbsp;0042&nbsp;0108&nbsp;1496
+		dt BIC, SWIFT-Code
+		dd OBKLAT2L (Oberbank Austria)
+	dl.metadata
+		dt UID No.
+		dd ATU69988524
+		dt Registered Seat
+		dd Vienna
+		dt Registration No.
+		dd 441005m
+		dt Jurisdiction
+		dd Commercial Court Vienna
+	h2 Content Responsibility
+	p TRINN Consulting is solely responsible for the website #[a(href="http://trinn.consulting/") trinn.consulting]. All text and images belong to TRINN, unless stated otherwise. Public reuse of the content is allowed only after having received permission from TRINN. To contact TRINN please use the e-mail address #[span.email info@trinn.consulting].
+	h2 Terms of Use
+	p Content on this website is for informational purposes only and may be used free of charge. Usage of this site does not constitute a legal transaction between TRINN and their website visitors. Any form of partnering that may arise between TRINN and their visitors is independent of the usage of this website and in both responsibility and interest of the visitors.
+	h2 Disclaimer
+	p TRINN has taken reasonable care to assure that all supplied information on this website is correct and complete at the time of publishing. TRINN apologizes for unintended and accidental errors. In addition, TRINN reserves the right to make modifications to the provided information without prior notice.
+	p TRINN does neither verify the content nor the legality of other websites it links to. TRINN has no influence on the design of referenced sites and dissociates itself explicitly from this referenced sites, and as such is not liable for referenced sites.
+	h2 Data Protection
+	p TRINN treats all personal data in accordance with the Austrian Data Protection Act (#[span(lang="de") Datenschutzgesetz]).
+	h2 Design & Development
+	p TRINN Consulting GmbH.
+	p Logo by #[a(href="http://ulfharr.com/") Ulf Harr].
+	p Type set in #[a(href="https://www.google.com/fonts/specimen/Alegreya+Sans") Alegreya Sans] by Juan Pablo del&nbsp;Peral and served via #[a(href="https://www.google.com/fonts/") google fonts].

@@ -1,0 +1,15 @@
+extends ./layout.jade
+
+block title
+	title #{article.title} • TRINN Consulting
+	if article.description
+		meta(name="description", content=article.description)
+
+append styles
+	if article.wallpaper
+		style .article-header{background-image:url(/img/#{article.wallpaper})}.article-header::before{content:""}
+
+block main
+	include heading
+	.content
+		block content

@@ -1,0 +1,42 @@
+doctype html
+
+block variables
+	- var article = {}
+	- var nesting = []
+	- nesting.push({"node": "", "name": "TRINN"})
+
+include mixins
+
+html(lang=language)
+
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width,initial-scale=1.0")
+		block title
+		<!--[if gt IE 8]><!-->
+		block styles
+			link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Alegreya+Sans:700,400,100")
+			if verbose
+				link(rel="stylesheet", href="/css/style.css")
+			else
+				link(rel="stylesheet", href="/css/main.css")
+		block icons
+			link(rel="icon", type="image/png", sizes="500x500", href="/img/avatar-500.png")
+			link(rel="icon", type="image/png", sizes="192x192", href="/img/avatar.png")
+			link(rel="icon", type="image/x-icon", sizes="16x16 32x32", href="/favicon.ico")
+		<!--<![endif]-->
+		include oldie
+
+	body
+		include header
+		main
+			block main
+		include footer
+		<!--[if gt IE 9]><!-->
+		block scripts
+			if verbose
+				script(src="/js/mailto.js")
+			else
+				script
+					include ../build/main.js
+		<!--<![endif]-->

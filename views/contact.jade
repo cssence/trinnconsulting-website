@@ -1,0 +1,28 @@
+extends ./article.jade
+
+append variables
+	- article.title = "Contact us"
+	- article.subtitle = "We’d love to hear from you"
+	- article.description = "Get in touch with TRINN Consulting."
+	- article.image = "mailthisto-mailman.png"
+	- article.wallpaper = "mailthisto.jpg"
+	- nesting.push({"node": "contact", "name": "Contact"})
+
+block content
+	h2 Get in touch with TRINN
+	form(action="http://mailthis.to/trinn", method="post")
+		p
+			label(for="email") Email Address
+			br
+			input(type="email", name="email", id="email", placeholder="me@example.com")
+		p
+			label(for="message") Message
+			br
+			textarea(cols="40", rows="8", name="message", id="message", placeholder="I’d like to say…")
+		p.form-action
+			button.button(type="submit") Send message
+		input(type="text", name="_honey", value="", style="display:none")
+		input(type="hidden", name="_replyto", value="%email")
+		input(type="hidden" name="_after" value="http://trinn.consulting/contact/thanks")
+	p
+		small Mailman logo and wallpaper courtesy of #[a(href="http://mailthis.to/") mailthis.to]. Also, this form is powered by this great service.
