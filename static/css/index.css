@@ -65,6 +65,10 @@
 		color: #fff;
 	}
 
+	.section-clients {
+		background: linear-gradient(0, rgba(0,0,0,.67), rgba(0,0,0,.67)), url(/img/lion.jpg) center / cover no-repeat #444;
+	}
+
 	.section-team .content {
 		position: relative;
 		max-width: none;
