@@ -30,6 +30,4 @@ block main
 				each company in partner
 					li.intro-item.partner-company
 						a.intro-item-link.hide-link.block-link(href=company.url)
-							img.partner-company-logo(src="/img/"+company.logo)
-							br.print
-							span.print= company.name
+							img.partner-company-logo(alt=company.name, src="/img/"+company.logo)
