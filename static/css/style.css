@@ -190,6 +190,10 @@ hr,
 	font-size: 125%;
 }
 
+@keyframes start {
+	from { transform: translate(0, 10em); } to {}
+}
+
 @media screen {
 
 	.print {
@@ -218,6 +222,14 @@ hr,
 		border: 0 solid transparent;
 		border-right-color: rgb(0,211,229);
 		border-width: 9.7148279em 6em 0 0;
+	}
+	body::before {
+		animation: start .5s ease;
+		position: fixed;
+		z-index: 2;
+	}
+	.branding-link {
+		z-index: 3; /*=body::before+1*/
 	}
 
 	a:focus,
