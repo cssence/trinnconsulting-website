@@ -1,0 +1,23 @@
+extends ./layout.jade
+
+append variables
+	- nesting.push({"name": "Download", "href": path.replace("/index", ".pdf")})
+	- article.title = document.title
+	- article.subtitle = document.subtitle
+	- article.image = ".." + document.image
+	- article.wallpaper = document.wallpaper
+
+block title
+	title ‹#{article.title || "Untitled"}› • Document Cloud • TRINN Consulting"
+
+append styles
+	if style
+		style!= style
+	if document.style
+		style!= document.style
+	if article.wallpaper
+		style .article-header{background-image:url(#{article.wallpaper})}.article-header::before{content:""}
+
+block main
+	include heading
+	.content!= document.body

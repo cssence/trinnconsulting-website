@@ -5,17 +5,25 @@ module.exports = function (grunt) {
 	grunt.file.defaultEncoding = "utf8";
 
 	// project data
-	var data = require("./data.js")();
+	var pkg = require("./package.json");
+	var data = require("./data.js")(pkg);
 
 	// project initialization
 	grunt.config.init({
+
+		dir: pkg.config.folders,
 
 		data: data,
 
 		// clean staging directory
 		clean: {
-			temp: ["build"],
-			live: ["public"]
+			temp: ["<%= dir.temp %>"],
+			live: ["<%= dir.rendered %>"],
+			delegate: {
+				expand: true,
+				cwd: "<%= dir.rendered %>/",
+				src: ["css", "js", "img", "browserconfig.xml", "manifest.json"]
+			}
 		},
 
 		// css autoprefix and minify
@@ -28,9 +36,9 @@ module.exports = function (grunt) {
 			},
 			styles: {
 				expand: true,
-				cwd: "static/css/",
-				src: "*.css",
-				dest: "build/"
+				cwd: "<%= dir.assets %>/",
+				src: "css/*.css",
+				dest: "<%= dir.temp %>/"
 			}
 		},
 
@@ -39,40 +47,31 @@ module.exports = function (grunt) {
 			scripts: {
 				options: { screwIE8: true },
 				files: {
-					"build/main.js": ["static/js/mailto.js"]
+					"<%= dir.temp %>/js/main.js": ["<%= dir.assets %>/js/mailto.js"]
 				}
 			}
 		},
 
 		// file copy
 		copy: {
-			styles: {
-				files: {
-					"public/css/main.css": ["build/style.css"]
-				}
+			assets: {
+				expand: true,
+				cwd: "<%= dir.assets %>",
+				src: "**",
+				dest: "<%= dir.rendered %>/"
 			},
-			images: {
-				files: [
-					{
-						expand: true,
-						flatten: true,
-						src: ["data/img/*", "static/img/*"],
-						dest: "public/img/"
-					},
-					{
-						expand: true,
-						flatten: true,
-						src: ["static/favicon.ico"],
-						dest: "public/"
-					}
-				]
+			build: {
+				expand: true,
+				cwd: "<%= dir.temp %>",
+				src: "**",
+				dest: "<%= dir.rendered %>/"
 			},
-			settings: {
-				files: {
-					"public/robots.txt": ["static/robots.txt"],
-					"public/CNAME": ["CNAME"]
-				}
-			},
+			data: {
+				expand: true,
+				cwd: "<%= dir.db %>",
+				src: ["**", "!*.jade", "!*.css", "!*.json",  "!*.js"],
+				dest: "<%= dir.rendered %>/"
+			}
 		},
 
 		// jade compile
@@ -81,15 +80,28 @@ module.exports = function (grunt) {
 				options: {
 					data: function (dest, src) {
 						var data = grunt.config("data");
-						var path = data.toPath("public", dest);
+						var path = data.toPath(pkg.config.folders.rendered, dest);
 						grunt.log.writeln("Rendering \"%s\": %s", path, dest);
 						return data.get(path);
 					}
 				},
-				files: data.map("views", "public")
+				files: data.map(pkg.config.folders.views, pkg.config.folders.rendered)
+			}
+		},
+
+		// file create
+		create: {
+			cname: {
+				file: "<%= dir.rendered %>/CNAME",
+				content: data.get("*").link.self.split("/")[2]
 			}
 		}
 
+	});
+
+	grunt.registerMultiTask("create", "Simple file creation", function () {
+		grunt.file.write(this.data.file, this.data.content);
+		grunt.log.writeln("File \"" + this.data.file + "\" created.");
 	});
 
 	// required external tasks
@@ -102,13 +114,13 @@ module.exports = function (grunt) {
 	// task definition
 	grunt.registerTask(
 		"build",
-		"Prepares assets (minification)",
+		"Prepare assets (minification)",
 		["clean:temp", "postcss", "uglify"]
 	);
 	grunt.registerTask(
 		"release",
 		"Generate static site",
-		["clean:live", "copy", "jade"]
+		["clean:live", "copy:assets", "copy:build", "copy:data", "jade", "build", "create:cname"]
 	);
 	grunt.registerTask("default", ["build", "release"]);
 };

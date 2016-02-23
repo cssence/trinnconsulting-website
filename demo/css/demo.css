@@ -45,7 +45,7 @@
 		width: 10em;
 		margin-left: -5em !important;
 		padding-top: 3.5rem;
-		background: url(/img/logo.png) 0 0 / 9.75em auto no-repeat;
+		background: url(/img/logo.svg) 0 0 / 9.75em auto no-repeat;
 		font-family: sans-serif;
 		font-size: 250%;
 		font-weight: 700;
@@ -65,64 +65,8 @@
 		color: #fff;
 	}
 
-	.section-clients {
+	.section-demo {
 		background: linear-gradient(0, rgba(0,0,0,.67), rgba(0,0,0,.67)), url(/img/lion.jpg) center / cover no-repeat #444;
-	}
-
-	.section-team .content {
-		position: relative;
-		max-width: none;
-	}
-
-	.intro {
-		list-style-type: none;
-		text-align: center;
-	}
-	.intro.team {
-		overflow-x: auto;
-		overflow-y: hidden;
-		width: auto;
-		margin-right: -2em;
-		margin-left: -2em;
-		white-space: nowrap;
-	}
-
-	.intro-item {
-		display: inline-block;
-		position: relative;
-		width: 13em;
-		padding: 10em 0 1em;
-		text-align: center;
-	}
-
-	.partner-company {
-		width: auto;
-		padding: 1em 3em;
-	}
-
-	.partner-company-logo {
-		width: 6em;
-		background: #fff;
-	}
-
-	.intro-item-link {
-		display: block;
-	}
-
-	.intro-item h3 {
-		margin-bottom: -1em;
-	}
-
-	.image-frame {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		margin-left: -4.5em !important;
-	}
-
-	.call-to-action h3 {
-		margin-top: 2em;
-		color: inherit;
 	}
 
 }
@@ -148,10 +92,6 @@
 	.tagline {
 		padding-top: 2.75rem;
 		font-size: 7vw;
-	}
-
-	.partner-company {
-		font-size: 2.5vw;
 	}
 
 }

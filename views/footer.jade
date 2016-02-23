@@ -2,8 +2,8 @@ footer.site
 	nav.nav-about.screen
 		ul
 			- var links = []
-			- links.push({"path": "/contact", "name": "Contact"})
-			- links.push({"path": "/imprint", "name": "Imprint"})
+			- links.push({"path": link.to("/contact"), "name": "Contact"})
+			- links.push({"path": link.to("/imprint"), "name": "Imprint"})
 			each link in links
 				li
 					a(href=link.path)= link.name

@@ -1,0 +1,14 @@
+extends ./layout.jade
+
+append styles
+	if document.style
+		//- TODO embed minified version or href to min.css
+		style!= document.style
+
+block title
+	title= document.title
+	meta(name="description", content=document.description)
+
+block main
+	include vcard
+	!= document.body

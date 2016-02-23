@@ -6,5 +6,5 @@ header.site.screen
 					if !depth
 						include logo
 					else
-						- var path = nesting.slice(0, depth + 1).map(function (item) { return item.node; }).join("/")
+						- var path = entry.href || nesting.slice(0, depth + 1).map(function (item) { return item.node; }).join("/")
 						a.hide-link(href=path)= entry.name

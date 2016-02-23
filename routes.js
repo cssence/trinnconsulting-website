@@ -1,18 +1,17 @@
-module.exports = function (pkg) {
+module.exports = function (pkg, data) {
 	"use strict";
 	var path = require("path");
-	var data = require(path.join(__dirname, "data.js"))(pkg);
 	return {
 		log: function (req, res, next) {
-			console.log(req.method, req.path);
+			console.info(req.method, req.path);
 			next();
 		},
 		render: function (req, res) {
 			var result = data.get(req.path);
-			if (result.error) {
-				res.status(result.error).send(JSON.stringify(result));
+			if (result.template) {
+				res.status(result.error || 200).render(result.template, result);
 			} else {
-				res.render(result.template, result);
+				res.status(result.error || 500).send(JSON.stringify(result));
 			}
 		},
 		error: function (req, res) {

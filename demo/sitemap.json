@@ -1,0 +1,7 @@
+{
+	"/": "display.jade",
+	"/contact": "contact.jade",
+	"/contact/thanks": "contact-sent.jade",
+	"/imprint": "imprint.jade",
+	"/404": "404.jade"
+}

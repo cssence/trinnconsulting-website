@@ -19,11 +19,8 @@ html(lang=language)
 			if verbose
 				link(rel="stylesheet", href="/css/style.css")
 			else
-				link(rel="stylesheet", href="/css/main.css")
-		block icons
-			link(rel="icon", type="image/png", sizes="500x500", href="/img/avatar-500.png")
-			link(rel="icon", type="image/png", sizes="192x192", href="/img/avatar.png")
-			link(rel="icon", type="image/x-icon", sizes="16x16 32x32", href="/favicon.ico")
+				link(rel="stylesheet", href=link.to("/css/main.css"))
+		include icon
 		<!--<![endif]-->
 		include oldie
 
@@ -35,8 +32,7 @@ html(lang=language)
 		<!--[if gt IE 9]><!-->
 		block scripts
 			if verbose
-				script(src="/js/mailto.js")
+				script(async, src="/js/mailto.js")
 			else
-				script
-					include ../build/main.js
+				script(async, src="/js/main.js")
 		<!--<![endif]-->

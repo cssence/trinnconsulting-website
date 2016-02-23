@@ -1,6 +1,6 @@
 ::selection {
-	background: #666;
-	color: #fff;
+	background: #fac8a9;
+	color: #000;
 	text-shadow: none;
 }
 
@@ -28,6 +28,12 @@ html {
 
 main {
 	display: block; /*IE*/
+}
+
+code,
+kbd,
+tt {
+	font-size: 87.5%;
 }
 
 img {
