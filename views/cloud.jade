@@ -8,7 +8,7 @@ append variables
 	- article.wallpaper = document.wallpaper
 
 block title
-	title ‹#{article.title || "Untitled"}› • Document Cloud • TRINN Consulting"
+	title= ["‹" + article.title + "›", "Document Cloud", "TRINN Consulting"].join(" • ")
 
 append styles
 	if style

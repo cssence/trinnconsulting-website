@@ -5,9 +5,9 @@
 			var anchor = document.createElement("a");
 			anchor.className = "email";
 			anchor.href = "mail" + "to:" + plain.textContent;
-			anchor.textContent = plain.textContent;
+			anchor.innerHTML = plain.innerHTML;
 			plain.classList.remove("email");
-			plain.innerHTML = "";	
+			plain.innerHTML = "";
 			plain.appendChild(anchor);
 		});
 	}

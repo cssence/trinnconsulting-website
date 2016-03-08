@@ -29,7 +29,7 @@ block content
 		dt Fax
 		dd +43&nbsp;1&nbsp;5129141&nbsp;-&nbsp;51
 		dt Email address
-		dd info@trinn.consulting
+		+mail("office@trinn.consulting", "dd")
 	dl.metadata
 		dt IBAN
 		dd AT95&nbsp;1500&nbsp;0042&nbsp;0108&nbsp;1496
@@ -45,7 +45,9 @@ block content
 		dt Jurisdiction
 		dd Commercial Court Vienna
 	h2 Content Responsibility
-	p TRINN Consulting is solely responsible for the website #[a(href="http://trinn.consulting/") trinn.consulting]. All text and images belong to TRINN, unless stated otherwise. Public reuse of the content is allowed only after having received permission from TRINN. To contact TRINN please use the e-mail address #[span.email info@trinn.consulting].
+	p TRINN Consulting is solely responsible for the website #[a(href="http://trinn.consulting/") trinn.consulting]. All text and images belong to TRINN, unless stated otherwise. Public reuse of the content is allowed only after having received permission from TRINN. To contact TRINN please use the e-mail address 
+		+mail("office@trinn.consulting")
+		| .
 	h2 Terms of Use
 	p Content on this website is for informational purposes only and may be used free of charge. Usage of this site does not constitute a legal transaction between TRINN and their website visitors. Any form of partnering that may arise between TRINN and their visitors is independent of the usage of this website and in both responsibility and interest of the visitors.
 	h2 Disclaimer

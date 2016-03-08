@@ -1,0 +1,23 @@
+extends ./layout.jade
+
+append variables
+	- nesting.push({"name": "Demo", "href": path})
+	- article.title = document.demo
+	- article.subtitle = "*** for demonstration purposes only ***"
+
+block title
+	title= ["‹" + document.demo + "›", "Demo", "Document Cloud", "TRINN Consulting"].join(" • ")
+
+block styles
+	if style
+		style!= style
+	if document.styleRef
+		link(rel="stylesheet", href=document.styleRef)
+	if document.style
+		style!= document.style
+
+block main
+	include heading
+	!= document.body
+
+block scripts

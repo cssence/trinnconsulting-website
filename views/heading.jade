@@ -2,5 +2,6 @@
 header.article-header
 	h1.article-title(class=article.headerTags[0])= article.title
 	p.article-subtitle(class=article.headerTags[1])= article.subtitle
-	p.article-image-frame.image-frame
-		img.article-image.image(alt="", src="/img/"+article.image, class=article.headerTags[2])
+	if article.image
+		p.article-image-frame.image-frame
+			img.article-image.image(alt="", src="/img/"+article.image, class=article.headerTags[2])

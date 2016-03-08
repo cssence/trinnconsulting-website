@@ -18,19 +18,11 @@ module.exports = function (pkg) {
 		}
 		return cache[file];
 	};
-	var refreshSitemap = function () {
-		var file = "sitemap.json";
-		var refresh = pkg.config.verbose || !cache[file];
-		var map = load(file);
-		if (refresh) {
-			Object.keys(map).forEach(function (href) {
-				map[href] = {
-					template: map[href],
-					file: (href + (href.slice(-1) === "/" ? "index.html" : ".html")).slice(1)
-				};
-			});
-		}
-		return map;
+	var getTemplates = function () {
+		return load("sitemap.json");
+	};
+	var getFile = function (href) {
+		return (href + (href.slice(-1) === "/" ? "index.html" : ".html")).slice(1);
 	};
 	try {
 		if (!fs.statSync(path.join(__dirname, "data")).isDirectory()) {
@@ -78,40 +70,36 @@ module.exports = function (pkg) {
 			if (href === "*") {
 				return data;
 			}
-			var sitemap = refreshSitemap();
-			if (!sitemap[href]) {
+			var templates = getTemplates();
+			if (!templates[href]) {
 				data.error = 404;
 				href = "/404";
-				if (!sitemap[href]) {
+				if (!templates[href]) {
 					return {error: 404, path: data.path};
 				}
 			}
-			data.file = sitemap[href].file;
-			data.template = sitemap[href].template;
-			if (!data.template) {
-				return {error: 500, path: data.path};
-			}
+			data.file = getFile(href);
+			data.template = templates[href];
 			(fetch[data.template] || []).forEach(augment);
 			return data;
 		},
 		/*toFile: function (href) {
-			return refreshSitemap()[href].file;
+			return getFile(href);
 		},*/
 		toPath: function (dest, file) {
-			var sitemap = refreshSitemap();
-			return Object.keys(sitemap).filter(function (href) { return [dest, sitemap[href].file].join("/") === file; })[0];
+			return Object.keys(getTemplates()).filter(function (href) { return [dest, getFile(href)].join("/") === file; })[0];
 		},
 		/*toTemplate: function (href) {
-			return refreshSitemap()[href].template;
+			return templates[href];
 		},*/
 		list: function () {
-			return Object.keys(refreshSitemap());
+			return templates.refresh().keys();
 		},
 		map: function (src, dest) {
-			var sitemap = refreshSitemap();
 			var map = {};
-			Object.keys(sitemap).forEach(function (href) {
-				map[[dest, sitemap[href].file].join("/")] = [src, sitemap[href].template].join("/");
+			var templates = getTemplates();
+			Object.keys(templates).forEach(function (href) {
+				map[[dest, getFile(href)].join("/")] = [src, templates[href]].join("/");
 			});
 			return map;
 		}
