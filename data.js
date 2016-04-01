@@ -39,6 +39,10 @@ module.exports = function (pkg) {
 				path: href,
 				link: {
 					self: pkg.homepage,
+					text: pkg.homepage.split("/")[2],
+					absolute: function (uri) {
+						return pkg.homepage + uri.slice(1);
+					},
 					to: function (uri) {
 						return (!data.verbose && data.link.delegate ? data.link.delegate.slice(0, -1) : "") + uri;
 					}

@@ -93,7 +93,7 @@ module.exports = function (grunt) {
 		create: {
 			cname: {
 				file: "<%= dir.rendered %>/CNAME",
-				content: data.get("*").link.self.split("/")[2]
+				content: data.get("*").link.text
 			}
 		}
 

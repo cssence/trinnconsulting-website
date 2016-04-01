@@ -40,7 +40,7 @@ img {
 	border: none;
 }
 
-::input-placeholder {
+::placeholder {
 	color: #e3e3e3;
 }
 

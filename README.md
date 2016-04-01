@@ -2,4 +2,4 @@
 
 Website of TRINN Consulting. Nothing more. Nothing less.
 
-Copyright 2015-2016 [TRINN Consulting GmbH](http://trinn.consulting/).
+Copyright 2015-2016 [TRINN Consulting GmbH](https://trinn.consulting/).
